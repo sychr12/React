@@ -1,0 +1,94 @@
+import React, { useState } from "react";
+import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+
+export default function App() {
+  const [completo, setCompleto] = useState("");
+  const [username, setUsername] = useState("");
+  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState("");
+  const [celular, setCelular] = useState("");
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.label}>Crie seu Usuario</Text>
+      <View style={styles.form}>
+        <Text style={styles.label}>Nome Completo</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Completo"
+          value={completo}
+          onChangeText={setCompleto}
+        />
+
+        <Text style={styles.label}>Apelido</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Usuario"
+          value={username}
+          onChangeText={setUsername}
+        />
+
+        <Text style={styles.label}>Email</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+        />
+
+        <Text style={styles.label}>Celular</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Celular"
+          keyboardType="phone-pad"
+          maxLength={15}
+          value={celular}
+          onChangeText={setCelular}
+        />
+
+        <Text style={styles.label}>Senha</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Senha"
+          secureTextEntry
+          value={senha}
+          onChangeText={setSenha}
+        />
+
+        <Button title="Login" onPress={() => alert("Login clicado!")} />
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+    backgroundColor: "#f5f5f5",
+    justifyContent: "center",
+  },
+  form: {
+    backgroundColor: "white",
+    padding: 20,
+    borderRadius: 10,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 5,
+    fontWeight: "bold",
+  },
+  input: {
+    height: 40,
+    borderColor: "#ddd",
+    borderWidth: 1,
+    marginBottom: 15,
+    padding: 10,
+    borderRadius: 5,
+  },
+});
